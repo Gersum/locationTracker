@@ -1,0 +1,14 @@
+<div class="location-inputs">
+  <label for="end">Destination Location (e.g., Bole International Airport):</label>
+  <input
+    id="end"
+    type="text"
+    placeholder="e.g., Bole International Airport, Addis Ababa, Ethiopia"
+    [(ngModel)]="endLocation"
+  />
+
+  <button (click)="simulateCarMovement()">Start Simulation</button> &nbsp;&nbsp;
+  <button (click)="stopSimulation()" [disabled]="!isSimulationRunning">Stop Simulation</button>
+</div>
+
+<div id="map" style="height: 100vh; width: 100%;"></div>

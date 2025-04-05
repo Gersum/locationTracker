@@ -1,0 +1,58 @@
+/* src/app/components/map/map.component.css */
+#map {
+  height: 100vh; /* Full viewport height */
+  width: 100%;   /* Full width */
+  position: relative;
+  z-index: 1;    /* Ensure it appears above other elements */
+}
+
+.leaflet-marker-icon {
+  transition: transform 0.5s ease-out;
+}
+
+.car-marker {
+  background: transparent;
+  border: none;
+}
+
+.car-marker img {
+  filter: hue-rotate(120deg) brightness(1.2);
+}
+
+.location-inputs {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000; /* Ensure it appears above the map */
+}
+
+.location-inputs label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.location-inputs input {
+  width: 250px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.location-inputs button {
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.location-inputs button:hover {
+  background-color: #0056b3;
+}

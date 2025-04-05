@@ -1,0 +1,16 @@
+/* src/styles.css */
+@import "leaflet/dist/leaflet.css";
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 5px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.leaflet-popup-content {
+  margin: 8px 12px;
+}

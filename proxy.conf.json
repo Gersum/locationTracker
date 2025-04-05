@@ -1,0 +1,10 @@
+{
+  "/geocode": {
+    "target": "https://api.openrouteservice.org",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/geocode": "/geocode"
+    }
+  }
+}
