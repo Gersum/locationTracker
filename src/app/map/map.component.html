@@ -1,14 +1,47 @@
-<div class="location-inputs">
-  <label for="end">Destination Location (e.g., Bole International Airport):</label>
-  <input
-    id="end"
-    type="text"
-    placeholder="e.g., Bole International Airport, Addis Ababa, Ethiopia"
-    [(ngModel)]="endLocation"
-  />
-
-  <button (click)="simulateCarMovement()">Start Simulation</button> &nbsp;&nbsp;
-  <button (click)="stopSimulation()" [disabled]="!isSimulationRunning">Stop Simulation</button>
+<div class="map-container">
+  <div id="map" class="map"></div>
+  
+  <div class="map-controls">
+    <div class="user-info">
+      <div class="user-details">
+        <div class="user-name"> {{ currentUser}}</div>
+        <div class="current-datetime">{{ currentDateTime }}</div>
+      </div>
+    </div>
+    
+    <div class="search-box">
+      <input 
+        type="text" 
+        id="destination" 
+        placeholder="Enter destination (location name or coordinates)" 
+        class="location-input"
+      />
+      <div class="use-current-location">
+        <input 
+          type="checkbox" 
+          id="useCurrentLocation" 
+          [checked]="useCurrentLocationAsStart" 
+          (change)="toggleUseCurrentLocation()" 
+        />
+        <label for="useCurrentLocation">Use my current location as starting point</label>
+      </div>
+      <button 
+        (click)="searchDestination()" 
+        class="search-button" 
+        [disabled]="isSearching">
+        <span *ngIf="!isSearching">Search Route</span>
+        <span *ngIf="isSearching">Searching...</span>
+      </button>
+      <div *ngIf="searchError" class="error-message">{{ searchError }}</div>
+    </div>
+    
+    <div class="instructions">
+      <p><strong>How to use:</strong></p>
+      <ul>
+        <li>Enter a destination by location name (e.g., "Addis Ababa Stadium") or coordinates (e.g., "8.9906, 38.7678")</li>
+        <li>Check "Use my current location" to start from your current position</li>
+        <li>Click "Search Route" to calculate and display your route</li>
+      </ul>
+    </div>
+  </div>
 </div>
-
-<div id="map" style="height: 100vh; width: 100%;"></div>
